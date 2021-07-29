@@ -53,6 +53,7 @@ public class MainForSpring {
 			printHelp();
 			return;
 		}
+		
 		MemberRegisterService regSvc = 
 				ctx.getBean("memberRegSvc",MemberRegisterService.class);
 		RegisterRequest req = new RegisterRequest();
