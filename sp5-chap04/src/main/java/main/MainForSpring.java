@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import assembler.Assembler;
 import config.AppCtx;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
@@ -55,7 +54,6 @@ public class MainForSpring {
 			printHelp();
 		}
 	}
-	private static Assembler assembler = new Assembler();
 	
 	private static void processNewCommand(String[] arg) {
 		if(arg.length != 5) {

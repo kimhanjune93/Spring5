@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import assembler.Assembler;
 import config.AppCtx;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
@@ -55,7 +54,6 @@ public class MainForSpring {
 			printHelp();
 		}
 	}
-	private static Assembler assembler = new Assembler();
 	
 	private static void processNewCommand(String[] arg) {
 		if(arg.length != 5) {
@@ -64,7 +62,7 @@ public class MainForSpring {
 		}
 		
 		MemberRegisterService regSvc = 
-				ctx.getBean("memberRegSvc",MemberRegisterService.class);
+				ctx.getBean(MemberRegisterService.class);
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -90,7 +88,7 @@ public class MainForSpring {
 			return;
 		}
 		ChangePasswordService changePwdSvc = 
-				ctx.getBean("changePwdSvc",ChangePasswordService.class);
+				ctx.getBean(ChangePasswordService.class);
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호를 변경했습니다.\n");
